@@ -2,10 +2,15 @@
 ###    Based on the survey of 242 replies
 
 By Jiri Vanek from IBM's OpenJDK team.
-19/6/2026 Devconnf 206, Brno
+19/6/2026 Devconnf 2026, Brno
 
+Where the answers moreover caused renaming....
 
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+#    Most Expected Features Of Newest JDKs
 
+By Jiri Vanek from IBM's OpenJDK team.
+19/6/2026 Devconnf 2026, Brno
 
 Only 7 JEPs made it to this talk, you can see the remaining 59 (34 - many are made in iterations)) at Brno JUG recording: https://www.youtube.com/watch?v=UnA2jRVNb3M (3hours!)
 
@@ -93,6 +98,7 @@ Only 7 JEPs made it to this talk, you can see the remaining 59 (34 - many are ma
 454: Foreign Function & Memory API
  * huge surprised
  * Maybe because it was first question in the form?
+   * Or very specific form audience?
 483: Ahead-of-Time Class Loading & Linking:
  * at least some parts of it
  * Topic of itself:  https://www.youtube.com/watch?v=UnA2jRVNb3M&t=7237s
@@ -112,7 +118,7 @@ Big language improvements:
  * 530: Primitive Types in Patterns, instanceof, and switch (Fourth Preview)
  * 456: Unnamed Variables & Patterns
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# .. and what they do not care so much
+# .. and what they do not care so much 1/4
 small language changes:
  * 477: Implicitly Declared Classes and Instance Main Methods (Third Preview)
  * 495: Simple Source Files and Instance Main Methods (Fourth Preview)
@@ -123,7 +129,7 @@ small language changes:
  * 467: Markdown Documentation Comments
  * 511: Module Import Declarations
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# .. and what they do not care so much
+# .. and what they do not care so much 2/4
 internal VM features:
  * 474: ZGC: Generational Mode by Default
  * 475: Late Barrier Expansion for G1
@@ -135,7 +141,7 @@ internal VM features:
  * 521: Generational Shenandoah
  * 490: ZGC: Remove the Non-Generational Mode
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# .. and what they do not care so much
+# .. and what they do not care so much 3/4
 removals:
  * 471: Deprecate the Memory-Access Methods in sun.misc.Unsafe for Removal
  * 479: Remove the Windows 32-bit x86 Port
@@ -146,7 +152,7 @@ removals:
  * 504: Remove the Applet API
  * 472: Prepare to Restrict the Use of JNI
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# .. and what they do not care so much
+# .. and what they do not care so much 4/4
 Crypto:
  * 496: Quantum-Resistant Module-Lattice-Based Key Encapsulation Mechanism
  * 497: Quantum-Resistant Module-Lattice-Based Digital Signature Algorithm
@@ -160,39 +166,84 @@ JFR:
 And... transparent change:
 517: HTTP/3 for the HTTP Client API
 
-We started a talk per JDK on Bno JUG. You can see demos aned explanations for all those:
-jdk 22-25:  https://www.youtube.com/watch?v=UnA2jRVNb3M
-jdk 26:     https://www.youtube.com/watch?v=ejhok_F3fHg
-jdk27:      comming at 9/2026
+We started a talk per JDK on Bno JUG. You can see demos and explanations for all those:
+JDK 22-25:  https://www.youtube.com/watch?v=UnA2jRVNb3M
+JDK 26:     https://www.youtube.com/watch?v=ejhok_F3fHg
+JDK 27:     coming at 9/2026
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Content
- * 454: Foreign Function & Memory API
- * 485: Stream Gatherers
- * 484: Class-File API
- * 513: Flexible Constructor Bodies
- * 529: Vector API (Eleventh Incubator)
- * 519: Compact Object Headers
- * 506: Scoped Values
+JEP														incubator/preview-finished/default	votes
+ * 454: [Foreign Function & Memory API](https://openjdk.org/jeps/454)		(JDK 16/19-22)	(13%)
+ * 485: [Stream Gatherers](https://openjdk.org/jeps/485) 					(JDK 22-24)		( 9%)
+ * 513: [Flexible Constructor Bodies](https://openjdk.org/jeps/513)			(JDK 22-25)		( 7%)
+ * 537: [Vector API (Twelfth Incubator)](https://openjdk.org/jeps/537)		(JDK 22-27)		( 6%)
+ * 534: [Compact Object Headers by Default](https://openjdk.org/jeps/534)	(JDK 24-26/27)	( 6%)
+ * 506: [Scoped Values](https://openjdk.org/jeps/506)						(JDK 20/21-25	( 5%)
+ * 484: [Class-File API](https://openjdk.org/jeps/484)						(JDK 22-24)		( 5%)
+
++ 6% for String Templates and 12% for Ahead-of-Time Class Loading & Linking	= 70% of happy audience
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-#  454: Foreign Function & Memory API
+# 454: Foreign Function & Memory API (13%)
+ * https://openjdk.org/jeps/454
+ * Incredible long history
+   * incubator since JDK 16
+   * preview since 19
+   * stable since 22
+ * Super simple "user interface"
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 485: Stream Gatherers
+# 485: Stream Gatherers (9%)
+ * https://openjdk.org/jeps/485
+ * preview since JDK 22
+ * stable since 24)
+ * obvious high interest in streams
+  * surprising lack of global knowledge?
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 484: Class-File API
+# 513: Flexible Constructor Bodies (7%)
+ * https://openjdk.org/jeps/513
+ * preview since JDK 22
+ * Stable since JDK 25
+
+more "this" examples with parent/and real "this"
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-#  513: Flexible Constructor Bodies
+# 537: Vector API (Twelfth Incubator)
+ * https://openjdk.org/jeps/537
+ * preview since JDK 22
+   * Still rolling
+
+Comapre jdk25 26 and 27
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-#  529: Vector API (Eleventh Incubator)
+# 534: Compact Object Headers by Default (6%)
+ * https://openjdk.org/jeps/534
+ * Experimental in JDK 24
+ * Stable in JDK 25
+  * -XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders
+    over to unlock!
+  maximal measuredimpacrt
+  *  22% less heap space and 10% less CPU time.
+ avarage imapce  15$ les hap 5% of CPU
+ * Default since 27
+   -XX:-UseCompactObjectHeaders ...
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-#  519: Compact Object Headers
+# 506: Scoped Values (5%)
+ * https://openjdk.org/jeps/506
+ * Incubator in JDK 20
+ * Preview since 21
+ * Stable since 25	
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 506: Scoped Values
+# 484: Class-File API (5%)
+ * https://openjdk.org/jeps/484
+ * Preview since JDK 22
+ * Stable since JDK 24
+ * Not an competitor to JASM, ASM or similar
+ * An Complement
+  * to make easily what ASM and friends have troubles to do
+  * But generally be able to do anything
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Q?
