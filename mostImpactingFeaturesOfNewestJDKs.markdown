@@ -190,6 +190,7 @@ JEP														incubator/preview-finished/default	votes
    * preview since 19
    * stable since 22
  * Super simple "user interface"
+https://github.com/openjdk/jextract ?
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers (9%)
@@ -212,13 +213,14 @@ more "this" examples with parent/and real "this"
  * https://openjdk.org/jeps/537
  * preview since JDK 22
    * Still rolling
-
+ * SIMD
 Comapre jdk25 26 and 27
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
  * https://openjdk.org/jeps/534
  * Experimental in JDK 24
+see https://openjdk.org/jeps/450
  * Stable in JDK 25
   * -XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders
     over to unlock!
