@@ -178,7 +178,7 @@ JEP														incubator/preview-finished/default	votes
  * 513: [Flexible Constructor Bodies](https://openjdk.org/jeps/513)			(JDK 22-25)		( 7%)
  * 537: [Vector API (Twelfth Incubator)](https://openjdk.org/jeps/537)		(JDK 22-27)		( 6%)
  * 534: [Compact Object Headers by Default](https://openjdk.org/jeps/534)	(JDK 24-26/27)	( 6%)
- * 531: [Lazy Constants (Third Preview)]{https://openjdk.org/jeps/531}      (JDK 25-27)		( 5%)
+ * 531: [Lazy Constants (Third Preview)](https://openjdk.org/jeps/531)      (JDK 25-27)		( 5%)
  * 506: [Scoped Values](https://openjdk.org/jeps/506)						(JDK 20/21-25	( 5%)
  * 484: [Class-File API](https://openjdk.org/jeps/484)						(JDK 22-24)		( 5%)
 
@@ -190,14 +190,32 @@ JEP														incubator/preview-finished/default	votes
    * incubator since JDK 16
    * preview since 19
    * stable since 22
- * Super simple "user interface"
-https://github.com/openjdk/jextract ?
- Note the related
+ * "user interface" for calling native methods 
+ * "user interface" for allocating of-heap memory (used by ^)
+ * proper calls to generic objects functions and to native memory
+  * no more 3rd party libraries to link non-c libraries
+  * no more java.misc.unsafe
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 454: Foreign Function & Memory API 2/3
+ * Demo!
+
+ * Note the related:
   * 472: [Prepare to Restrict the Use of JNI](https://openjdk.org/jeps/472) 24
+  * 471: [Deprecate the Memory-Access Methods in sun.misc.Unsafe for Removal](https://openjdk.org/jeps/471) 23
     * Prepare the Java ecosystem for a future release that disallows interoperation with native code by default, whether via JNI or the FFM API. As of that release, application developers will have to explicitly enable the use of JNI and the FFM API at startup.
-    * So its going to be much easier and faste.. but forbidden:)
-  * proper calls to shared objects functions and to native memory
- but not only that  -the type wrap/unwrap was always so costly that people were using java.misc.unsafe for off-heap allocations (which should go away)
+    * disallow of java.misc.unsafe
+    * So its going to be much easier and faster.. but forbidden:)
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 454: Foreign Function & Memory API 3/3
+ * jdk8's javah
+   * .class -> .h
+ * javac -h
+   * .java -> .h
+     * => https://github.com/Glavo/gjavah/
+     * .class -> .h
+ * https://github.com/openjdk/jextract
+  *  .h -> .java
+  * with proper FF and MA
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers (9%)
  * https://openjdk.org/jeps/485
@@ -205,6 +223,19 @@ https://github.com/openjdk/jextract ?
  * stable since 24)
  * obvious high interest in streams
   * surprising lack of global knowledge?
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 485: Stream Gatherers 2/2
+ * an extension point so that anyone could define intermediate stream operations
+  * Track previously seen elements to influence the transformation of later elements
+    * Stream::gather(Gatherer) 
+  * providing similar capabilities to intermediate Stream operations as the collect() provides to **terminal** operations
+    * interface Collector<T,A,R>
+    * interface Gatherer<T,A,R>
+  * Stream->Stream
+   * Gatherer uses an **Integrator** instead of a BiConsumer for per-element processing 
+   * Gatherer uses a **BiConsumer** for its finisher instead of a Function 
+     * as both it needs an extra input parameter for its Downstream object,
+  * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies (7%)
@@ -212,7 +243,9 @@ https://github.com/openjdk/jextract ?
  * preview since JDK 22
  * Stable since JDK 25
 
+first dmeo jdk ..8.. hello world with inheritance and swap instructions in JRD
 more "this" examples with parent/and real "this"
+- therea re obvious thngs ansd surprisesd
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator)
