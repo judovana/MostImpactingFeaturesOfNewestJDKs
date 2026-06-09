@@ -12,7 +12,7 @@ Where the answers moreover caused renaming....
 By Jiri Vanek from IBM's OpenJDK team.
 19/6/2026 Devconnf 2026, Brno
 
-Only 7 JEPs made it to this talk, you can see the remaining 59 (34 - many are made in iterations)) at Brno JUG recording: https://www.youtube.com/watch?v=UnA2jRVNb3M (3hours!)
+Only 7.5 JEPs made it to this talk, you can see the remaining 59 (34 - many are made in iterations)) at Brno JUG recording: https://www.youtube.com/watch?v=UnA2jRVNb3M (3hours!)
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Survey results
@@ -38,13 +38,13 @@ Only 7 JEPs made it to this talk, you can see the remaining 59 (34 - many are ma
 # What did not fit:
 458: Launch Multi-File Source-Code Programs	(8)
 ******
-502: Stable Values (Preview)				(7)
+502: Stable Values (Preview)				(7)(!)
 ******
 500: Prepare to Make Final Mean Final		(7)
 ******
-526: Lazy Constants (Second Preview)		(6)
+531: Lazy Constants (Third Preview)			(6)(!)
 ******
-530: Primitive Types in Patterns, instanceof, and switch (Fourth Preview)
+532: Primitive Types in Patterns, instanceof, and switch (Fifth Preview)
 ******
 456: Unnamed Variables & Patterns			(6)
 ****
@@ -104,6 +104,7 @@ Only 7 JEPs made it to this talk, you can see the remaining 59 (34 - many are ma
  * Topic of itself:  https://www.youtube.com/watch?v=UnA2jRVNb3M&t=7237s
 Big language improvements:
  * 485: Stream Gatherers
+ * 531: Lazy Constants (Third Preview)
  * 484: Class-File API
  * 513: Flexible Constructor Bodies
  * 529: Vector API (Eleventh Incubator)
@@ -114,8 +115,7 @@ Big language improvements:
  * 458: Launch Multi-File Source-Code Programs
  * 502: Stable Values (Preview)
  * 500: Prepare to Make Final Mean Final
- * 526: Lazy Constants (Second Preview)
- * 530: Primitive Types in Patterns, instanceof, and switch (Fourth Preview)
+ * 532:	Primitive Types in Patterns, instanceof, and switch (Fifth Preview)
  * 456: Unnamed Variables & Patterns
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # .. and what they do not care so much 1/4
@@ -178,10 +178,11 @@ JEP														incubator/preview-finished/default	votes
  * 513: [Flexible Constructor Bodies](https://openjdk.org/jeps/513)			(JDK 22-25)		( 7%)
  * 537: [Vector API (Twelfth Incubator)](https://openjdk.org/jeps/537)		(JDK 22-27)		( 6%)
  * 534: [Compact Object Headers by Default](https://openjdk.org/jeps/534)	(JDK 24-26/27)	( 6%)
+ * 531: [Lazy Constants (Third Preview)]{https://openjdk.org/jeps/531}      (JDK 25-27)		( 5%)
  * 506: [Scoped Values](https://openjdk.org/jeps/506)						(JDK 20/21-25	( 5%)
  * 484: [Class-File API](https://openjdk.org/jeps/484)						(JDK 22-24)		( 5%)
 
-+ 6% for String Templates and 12% for Ahead-of-Time Class Loading & Linking	= 70% of happy audience
++ 6% for String Templates and 12% for Ahead-of-Time Class Loading & Linking	= 75% of happy audience
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 454: Foreign Function & Memory API (13%)
  * https://openjdk.org/jeps/454
@@ -191,7 +192,12 @@ JEP														incubator/preview-finished/default	votes
    * stable since 22
  * Super simple "user interface"
 https://github.com/openjdk/jextract ?
-
+ Note the related
+  * 472: [Prepare to Restrict the Use of JNI](https://openjdk.org/jeps/472) 24
+    * Prepare the Java ecosystem for a future release that disallows interoperation with native code by default, whether via JNI or the FFM API. As of that release, application developers will have to explicitly enable the use of JNI and the FFM API at startup.
+    * So its going to be much easier and faste.. but forbidden:)
+  * proper calls to shared objects functions and to native memory
+ but not only that  -the type wrap/unwrap was always so costly that people were using java.misc.unsafe for off-heap allocations (which should go away)
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers (9%)
  * https://openjdk.org/jeps/485
@@ -212,7 +218,7 @@ more "this" examples with parent/and real "this"
 # 537: Vector API (Twelfth Incubator)
  * https://openjdk.org/jeps/537
  * preview since JDK 22
-   * Still rolling
+   * Still rollingThis will be resolved as part of upcoming security update , with unembargo (and relase date)  21.6.2026
  * SIMD
 Comapre jdk25 26 and 27
 
@@ -231,6 +237,13 @@ see https://openjdk.org/jeps/450
    -XX:-UseCompactObjectHeaders ...
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 531: Lazy Constants (Third Preview) (5%)
+ * {https://openjdk.org/jeps/531
+ * First preview at JDK 25, rename in jdk 26 and again renamed in 27
+ * performance improvements 25<26<27?
+still rolling
+
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 506: Scoped Values (5%)
  * https://openjdk.org/jeps/506
  * Incubator in JDK 20
@@ -242,7 +255,8 @@ see https://openjdk.org/jeps/450
  * https://openjdk.org/jeps/484
  * Preview since JDK 22
  * Stable since JDK 24
- * Not an competitor to JASM, ASM or similar
+ * Not an competitor to BCEL, ASM or similar
+  * do not mess up with JASM
  * An Complement
   * to make easily what ASM and friends have troubles to do
   * But generally be able to do anything

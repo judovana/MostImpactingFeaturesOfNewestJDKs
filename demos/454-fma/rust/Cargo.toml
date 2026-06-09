@@ -1,0 +1,8 @@
+[package]
+name = "rust_math"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Compiles the crate into a shared library (.so, .dylib, or .dll)
+crate-type = ["cdylib"] 

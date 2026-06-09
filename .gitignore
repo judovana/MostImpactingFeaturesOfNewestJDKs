@@ -24,3 +24,12 @@ hs_err_pid*
 replay_pid*
 
 mostImpactingFeaturesOfNewestJDKs-WeakPoint
+
+/demos/454-fma/c/Main.o
+/demos/454-fma/gohello.so
+/demos/454-fma/libnative.so
+/demos/454-fma/librust_math.so
+/demos/454-fma/rust/Cargo.lock
+/demos/454-fma/rust/target/
+
+
