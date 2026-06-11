@@ -214,27 +214,37 @@ JEP														incubator/preview-finished/default	votes
      * => https://github.com/Glavo/gjavah/
      * .class -> .h
  * https://github.com/openjdk/jextract
-  *  .h -> .java
+  * .h -> .java
   * with proper FF and MA
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers (9%)
  * https://openjdk.org/jeps/485
  * preview since JDK 22
- * stable since 24)
+ * stable since 24
  * obvious high interest in streams
   * surprising lack of global knowledge?
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 485: Stream Gatherers 2/2
- * an extension point so that anyone could define intermediate stream operations
+# 485: Stream Gatherers 2/3
+ * an extension point so that anyone could define **intermediate** chaining operations in  **infinite** streams
   * Track previously seen elements to influence the transformation of later elements
     * Stream::gather(Gatherer) 
-  * providing similar capabilities to intermediate Stream operations as the collect() provides to **terminal** operations
+  * gather() provides similar capabilities to intermediate **infinite** Stream as the collect() provides to **terminal** operations
     * interface Collector<T,A,R>
     * interface Gatherer<T,A,R>
-  * Stream->Stream
+  * ..only Gatherer is Stream->Stream
    * Gatherer uses an **Integrator** instead of a BiConsumer for per-element processing 
    * Gatherer uses a **BiConsumer** for its finisher instead of a Function 
      * as both it needs an extra input parameter for its Downstream object,
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 485: Stream Gatherers 3/3
+ * Interface Collector<T,A,R>
+   * T - the type of input elements to the reduction operation
+   * A - the mutable accumulation type of the reduction operation (often hidden as an implementation detail)
+   * R - the result type of the reduction operation 
+ * Interface Gatherer<T,A,R>
+   * T - the type of input elements to the gatherer operation
+   * A - the potentially mutable state type of the gatherer operation (often hidden as an implementation detail)
+   * R - the type of output elements from the gatherer operation 
   * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
