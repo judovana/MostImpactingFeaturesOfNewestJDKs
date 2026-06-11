@@ -176,8 +176,8 @@ JEP														incubator/preview-finished/default	votes
  * 454: [Foreign Function & Memory API](https://openjdk.org/jeps/454)		(JDK 16/19-22)	(13%)
  * 485: [Stream Gatherers](https://openjdk.org/jeps/485) 					(JDK 22-24)		( 9%)
  * 513: [Flexible Constructor Bodies](https://openjdk.org/jeps/513)			(JDK 22-25)		( 7%)
- * 537: [Vector API (Twelfth Incubator)](https://openjdk.org/jeps/537)		(JDK 22-27)		( 6%)
  * 534: [Compact Object Headers by Default](https://openjdk.org/jeps/534)	(JDK 24-26/27)	( 6%)
+ * 537: [Vector API (Twelfth Incubator)](https://openjdk.org/jeps/537)		(JDK 22-27)		( 6%)
  * 531: [Lazy Constants (Third Preview)](https://openjdk.org/jeps/531)      (JDK 25-27)		( 5%)
  * 506: [Scoped Values](https://openjdk.org/jeps/506)						(JDK 20/21-25	( 5%)
  * 484: [Class-File API](https://openjdk.org/jeps/484)						(JDK 22-24)		( 5%)
@@ -258,14 +258,6 @@ more "this" examples with parent/and real "this"
 - therea re obvious thngs ansd surprisesd
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 537: Vector API (Twelfth Incubator)
- * https://openjdk.org/jeps/537
- * preview since JDK 22
-   * Still rollingThis will be resolved as part of upcoming security update , with unembargo (and relase date)  21.6.2026
- * SIMD
-Comapre jdk25 26 and 27
-
---PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
  * https://openjdk.org/jeps/534
  * Experimental in JDK 24
@@ -278,6 +270,14 @@ see https://openjdk.org/jeps/450
  avarage imapce  15$ les hap 5% of CPU
  * Default since 27
    -XX:-UseCompactObjectHeaders ...
+
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 537: Vector API (Twelfth Incubator)
+ * https://openjdk.org/jeps/537
+ * preview since JDK 22
+   * Still rollingThis will be resolved as part of upcoming security update , with unembargo (and relase date)  21.6.2026
+ * SIMD
+Comapre jdk25 26 and 27
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 531: Lazy Constants (Third Preview) (5%)
