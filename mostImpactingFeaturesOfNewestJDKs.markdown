@@ -271,7 +271,7 @@ JEP														incubator/preview-finished/default	votes
      * instance of the enclosing class is created before the instance of the inner class
      * inner class — including constructor bodies — can access fields and invoke methods of the enclosing instance
      * constructor of outer class in the early construction context cannot instantiate the Inner class 
-   * Valhalla (value classes) put super() at the end of the constructor
+   * Valhalla (value classes without identity)) put `super()` at the end of the constructor
      * demo
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
@@ -299,18 +299,39 @@ Demo
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
- * https://openjdk.org/jeps/534
- * Experimental in JDK 24
-see https://openjdk.org/jeps/450
- * Stable in JDK 25
-  * -XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders
-    over to unlock!
-  maximal measuredimpacrt
-  *  22% less heap space and 10% less CPU time.
- avarage imapce  15$ les hap 5% of CPU
- * Default since 27
-   -XX:-UseCompactObjectHeaders ...
-
+ * Started at RH at our Cubicle
+	* Why some loads are better with OpenJ9? (around JDK..18?)
+ * Experimental in JDK 24 - https://openjdk.org/jeps/450
+   * -XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders
+ * Stable in JDK 25 - https://openjdk.org/jeps/519
+   * -XX:+UseCompactObjectHeaders
+  * Default in 27 - https://openjdk.org/jeps/534
+   * -XX:-UseCompactObjectHeaders ...
+  * maximal measured impacrt
+    * 22% less heap space and 10% less CPU time.
+ * average impact 15% less hap 5% of CPU
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 534: Compact Object Headers by Default (6%) 2/2
+ * **Each Object**  have an header.
+    * Garbage collection — Storing forwarding pointers and tracking object ages;
+    * Type system — Identifying an object's class, which is used for method invocation, reflection, type checks, etc.;
+    * Locking — Storing information about associated light-weight and heavy-weight locks; and
+    * Hash codes — Storing an object's stable identity hash code, once computed.
+    * The current object header layout is split into a mark word and a class word. The mark word comes first, has the size of a machine address, and contains
+  * And java application is a lot of short living small objects
+  * Saving anything on each object would speed up everything from ram consumption to memory operations => performance
+ * it was 98-128 bits in 64b JVM
+  * Now it is 64b (and at least 4 spared for future.. for Valhalla)
+```
+For compact object headers, we remove the division between the mark and class words by subsuming the class pointer, in compressed form, into the mark word:
+Header (compact):
+64                    42                             11   7   3  0
+ [CCCCCCCCCCCCCCCCCCCCCCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHVVVVAAAASTT]
+ (Compressed Class Pointer)       (Hash Code)         /(GC Age)^(Tag)
+                              (Valhalla-reserved bits) (Self Forwarded Tag)
+```
+ * Implement 32-bit object headers —  would likely involve implementing on-demand side storage for identity hash codes -  That is our ultimate goal.
+ * Demo!
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator)
  * https://openjdk.org/jeps/537
@@ -321,7 +342,7 @@ Comapre jdk25 26 and 27
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 531: Lazy Constants (Third Preview) (5%)
- * {https://openjdk.org/jeps/531
+ * https://openjdk.org/jeps/531
  * First preview at JDK 25, rename in jdk 26 and again renamed in 27
  * performance improvements 25<26<27?
 still rolling
