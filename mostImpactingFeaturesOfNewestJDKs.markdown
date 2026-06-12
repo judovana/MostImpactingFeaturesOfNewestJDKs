@@ -252,10 +252,50 @@ JEP														incubator/preview-finished/default	votes
  * https://openjdk.org/jeps/513
  * preview since JDK 22
  * Stable since JDK 25
+ * JLS specification change
+ * less restrictions
+ * optimization
+   * exit before all the code in `super()`
+ * prologue and epilogue
 
-first dmeo jdk ..8.. hello world with inheritance and swap instructions in JRD
-more "this" examples with parent/and real "this"
-- therea re obvious thngs ansd surprisesd
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 513: Flexible Constructor Bodies 2/3
+ * demo!
+ * What about older vms?
+ * The class still must defend itself against violations of its integrity
+   * code before construction context must not use the instance under construction, except to initialize fields that do not have their own initializers.
+   * code in an early construction context must not use `this` or `super`
+     * except [simple assignment statements](https://docs.oracle.com/javase/specs/jls/se23/html/jls-15.html#jls-15.26.1)
+     * `Record` classes even more restricted
+   * inner class can refer to the instance of an enclosing class
+     * instance of the enclosing class is created before the instance of the inner class
+     * inner class — including constructor bodies — can access fields and invoke methods of the enclosing instance
+     * constructor of outer class in the early construction context cannot instantiate the Inner class 
+   * Valhalla (value classes) put super() at the end of the constructor
+     * demo
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 513: Flexible Constructor Bodies 3/3
+What You CAN Do Before super()
+ * Validate Arguments: You can validate incoming constructor parameters and throw exceptions immediately, avoiding unnecessary superclass allocation
+ * Perform Computations: You can calculate complex arguments, parse strings, or run mathematical calculations needed for the super() call
+ * Initialize Subclass Fields: You can directly assign values to fields declared within the subclass itself. This ensures that if the superclass constructor calls an overridden method, the subclass fields are already safely populated
+ * Declare Local Variables: You can create temporary local variables to hold intermediate processing results
+ * Call Static Methods: You can call static helper methods or utility functions
+ * Execute Control Flow: You can use if-else blocks, loops and switches
+What You CANNOT Do Before super()
+ * Access this (Implicitly or Explicitly): You cannot reference the current object instance (e.g., passing this as a method argument)
+ * Read Subclass/Superclass Instance Fields: You can assign values to subclass fields, but you cannot read them or read any superclass fields, because the object instance state is still considered uninitialized
+ * Call Instance Methods: You can not invoke any non-static methods belonging to the subclass or superclass
+ * Use try-catch Blocks: You can not wrap the super() call inside a try-catch block
+ * You can not wrap the super() call inside a if-else block
+Action										Allowed in Prologue
+ * throw new IllegalArgumentException()		Yes
+ * int x = Integer.parseInt(str);			Yes
+ * this.subclassField = 10;					Yes (Write only)
+ * System.out.println(this.subclassField);	No (Cannot read field)
+ * this.someInstanceMethod();				No (Cannot call instance methods)
+ * super.superclassField = 5;				No (Cannot modify parent yet)
+Demo
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
