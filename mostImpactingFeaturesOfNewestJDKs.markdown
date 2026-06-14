@@ -245,7 +245,7 @@ JEP														incubator/preview-finished/default	votes
    * T - the type of input elements to the gatherer operation
    * A - the potentially mutable state type of the gatherer operation (often hidden as an implementation detail)
    * R - the type of output elements from the gatherer operation 
-  * Demo!
+ * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies (7%)
@@ -273,6 +273,7 @@ JEP														incubator/preview-finished/default	votes
      * constructor of outer class in the early construction context cannot instantiate the Inner class 
    * Valhalla (value classes without identity)) put `super()` at the end of the constructor
      * demo
+     * TODO-PING aph/adinn why?
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
 What You CAN Do Before super()
@@ -289,13 +290,14 @@ What You CANNOT Do Before super()
  * Use try-catch Blocks: You can not wrap the super() call inside a try-catch block
  * You can not wrap the super() call inside a if-else block
 Action										Allowed in Prologue
- * throw new IllegalArgumentException()		Yes
+ * throw new (Runtime)Exception()			Yes
  * int x = Integer.parseInt(str);			Yes
  * this.subclassField = 10;					Yes (Write only)
+   * Note, it can be initialized conditionally, based on arguments
  * System.out.println(this.subclassField);	No (Cannot read field)
  * this.someInstanceMethod();				No (Cannot call instance methods)
  * super.superclassField = 5;				No (Cannot modify parent yet)
-Demo
+Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
@@ -311,7 +313,7 @@ Demo
     * 22% less heap space and 10% less CPU time.
  * average impact 15% less hap 5% of CPU
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 534: Compact Object Headers by Default (6%) 2/2
+# 534: Compact Object Headers by Default 2/2
  * **Each Object**  have an header.
     * Garbage collection — Storing forwarding pointers and tracking object ages;
     * Type system — Identifying an object's class, which is used for method invocation, reflection, type checks, etc.;
@@ -333,20 +335,27 @@ Header (compact):
  * Implement 32-bit object headers —  would likely involve implementing on-demand side storage for identity hash codes -  That is our ultimate goal.
  * Demo!
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
-# 537: Vector API (Twelfth Incubator)
+# 537: Vector API (Twelfth Incubator) ( 6%)
  * https://openjdk.org/jeps/537
  * preview since JDK 22
-   * Still rollingThis will be resolved as part of upcoming security update , with unembargo (and relase date)  21.6.2026
+   * Still rolling!
  * SIMD
-Comapre jdk25 26 and 27
-
+ * Comapre jdk25 27
+   * no difference
+ * each vector operates only with vector
+ * primitives only
+ * demo!
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# 537: Vector API (Twelfth Incubator)  2/2
+ * Current state
+ * TODO-PING aph/adinn  - Why the delay? What is happening rght now?
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 531: Lazy Constants (Third Preview) (5%)
  * https://openjdk.org/jeps/531
  * First preview at JDK 25, rename in jdk 26 and again renamed in 27
  * performance improvements 25<26<27?
 still rolling
-
+TODO-PING aph/adinn  - Why the delay? What is happening rght now?
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 506: Scoped Values (5%)
  * https://openjdk.org/jeps/506
