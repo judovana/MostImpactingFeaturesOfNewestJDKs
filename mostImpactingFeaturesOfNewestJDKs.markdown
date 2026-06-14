@@ -309,7 +309,7 @@ Demo!
    * -XX:+UseCompactObjectHeaders
   * Default in 27 - https://openjdk.org/jeps/534
    * -XX:-UseCompactObjectHeaders ...
-  * maximal measured impacrt
+  * maximal measured impact
     * 22% less heap space and 10% less CPU time.
  * average impact 15% less hap 5% of CPU
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
@@ -340,7 +340,7 @@ Header (compact):
  * preview since JDK 22
    * Still rolling!
  * SIMD
- * Comapre jdk25 27
+ * Compare JDK 25 x 27
    * no difference
  * each vector operates only with vector
  * primitives only
