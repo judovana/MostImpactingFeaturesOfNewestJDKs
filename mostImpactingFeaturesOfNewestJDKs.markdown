@@ -343,6 +343,7 @@ Header (compact):
  * Compare JDK 25 x 27
    * no difference
  * each vector operates only with vector
+   * "builder" like chaining
  * primitives only
  * demo!
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
@@ -352,10 +353,14 @@ Header (compact):
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 531: Lazy Constants (Third Preview) (5%)
  * https://openjdk.org/jeps/531
- * First preview at JDK 25, rename in jdk 26 and again renamed in 27
- * performance improvements 25<26<27?
-still rolling
-TODO-PING aph/adinn  - Why the delay? What is happening rght now?
+ * First preview at JDK 25, as 502 Stable Values
+ * 526 Lazy Constants since JDK 26
+   * note the class changes
+ * Still preview in 27
+ * Targeting the Holder-Class singleton idiom and friends
+ * performance improvements 25<26=27?
+ * Be aware of `500: Prepare to Make Final Mean Final (JDK26)`
+ * TODO-PING aph/adinn  - Why the delay? What is happening rght now?
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 506: Scoped Values (5%)
  * https://openjdk.org/jeps/506
