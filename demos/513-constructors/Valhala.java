@@ -2,7 +2,7 @@ public class Valhala {
                           /**/
   private static abstract value class Midgard {
 
-   	Midgard() {
+   Midgard() {
       System.out.println("parent");
     }
   }
@@ -10,7 +10,7 @@ public class Valhala {
   private static value class Asgard extends Midgard {
 
 
-   	Asgard() {
+   Asgard() {
       System.out.println("child");
     }
   }

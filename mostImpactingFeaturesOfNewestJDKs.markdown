@@ -24,7 +24,7 @@ Only 7.5 JEPs made it to this talk, you can see the remaining 59 (34 - many are 
 ************
 513: Flexible Constructor Bodies			(16)
 **********
-529: Vector API (Eleventh Incubator)		(15)
+537: Vector API (Twelfth Incubator)		(15)
 **********
 519: Compact Object Headers					(14)
 **********
@@ -209,6 +209,7 @@ JEP														incubator/preview-finished/default	votes
 # 454: Foreign Function & Memory API 3/3
  * jdk8's javah
    * .class -> .h
+   * removed in JDK9 in favor of: (but..)
  * javac -h
    * .java -> .h
      * => https://github.com/Glavo/gjavah/
@@ -222,7 +223,7 @@ JEP														incubator/preview-finished/default	votes
  * preview since JDK 22
  * stable since 24
  * obvious high interest in streams
-  * surprising lack of global knowledge?
+  * missing peace in streams
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers 2/3
  * an extension point so that anyone could define **intermediate** chaining operations in  **infinite** streams
@@ -342,9 +343,9 @@ Header (compact):
  * SIMD
  * Compare JDK 25 x 27
    * no difference
+ * primitives only
  * each vector operates only with vector
    * "builder" like chaining
- * primitives only
  * demo!
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator)  2/2

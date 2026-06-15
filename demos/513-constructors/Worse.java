@@ -4,11 +4,11 @@ public class Worse {
 
     int i1 = 1;
 
-   	Master(String a) {
+   Master(String a) {
       System.out.println("String called " +a);
     }
 
-   	Master(int a) {
+   Master(int a) {
       System.out.println("int called");
     }
   }
@@ -17,7 +17,7 @@ public class Worse {
 
     int i2 ;//=2;
 
-   	KindMaster() {
+   KindMaster() {
       int b = true?6:7;
       if (b == 10 ) {throw new RuntimeException();} 
 //      i1++;

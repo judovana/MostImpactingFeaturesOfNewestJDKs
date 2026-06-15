@@ -2,7 +2,7 @@ public class Main {
 
   private static class Master {
 
-   	Master() {
+   Master() {
       System.out.println("I'm your master!");
     }
   }
