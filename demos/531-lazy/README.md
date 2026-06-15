@@ -4,11 +4,14 @@
  * `/usr/lib/jvm/java-25-openjdk/bin/java --enable-preview   --source=25  `
  * `/usr/lib/jvm/java-27-openjdk-valhalla/bin/java --enable-preview   --source=27 LazyDemo2627.java`
 
- * build-all.sh
-   * show code
- * run subtasks
+ * newRandom - easy constructor, harder getter
+   * build-all.sh
+ * newThrowable - hard constructor, easy getter
+   * build-all.sh
  * note various grupped tasks
- * note scope values worst...
-   * bad demo?
+ * clean:
+```
+rm -rf  `find -type d | grep -e "/build$"  -e "/build-call$"`
+```
 
 
