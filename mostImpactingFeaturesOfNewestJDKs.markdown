@@ -290,7 +290,7 @@ JEP														incubator/preview-finished/default	votes
      * It helps with flattening and enforces immutability
        * Do not forget you can not *read* `this`, only *write* it prequel
      * Valhalla classes have more like "builder" construction then casual constructor
-     * solves old java problem with virtual methods, where `super.method()`, actually calls `this.method()` but `this` do not exists
+     * solves old java problem with virtual methods, where `super()` constructor, calls `this.virtual_method()` and subclass implementation accesses fields of `this` which are not yet intialized
      * Valhalla mimics C approach, and is achieving C performance
      * The 0/null becomes tricky
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
