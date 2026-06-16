@@ -288,10 +288,10 @@ JEP														incubator/preview-finished/default	votes
      * in C++ the object is build top down (like this) "since ever"
      * This "hack" is prevention against only partially initialized objects
      * It helps with flattening and enforces immutability
-       * Do not forget you can not *read* `this`, only *write* it prequel
+       * Do not forget you can not *read* `this`, only *write* it prologue
      * Valhalla classes have more like "builder" construction then casual constructor
      * solves old java problem with virtual methods, where `super()` constructor, calls `this.virtual_method()` and subclass implementation accesses fields of `this` which are not yet intialized
-     * Valhalla mimics C approach, and is achieving C performance
+     * Value objects can be embedded directly into other objects and that gives a performance benefit 
      * The 0/null becomes tricky
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
