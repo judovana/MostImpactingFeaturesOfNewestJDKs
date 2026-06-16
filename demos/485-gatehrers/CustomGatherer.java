@@ -45,7 +45,7 @@ public class CustomGatherer {
    }
 
     public static void main(String[] args) {
-//        List.of(1, 2, 3, 4).stream().gather(new MyGatherer());
+//        List.of(1, 2, 3, 4).stream().gather(new MyGatherer()); -> <3,7>
         List<Integer> result = List.of(1, 2, 3, 4).stream().gather(new MyGatherer()).toList();
         System.out.println(result);
 //		  result=result.stream().gather(new MyGatherer()).collect(Collectors.toList());

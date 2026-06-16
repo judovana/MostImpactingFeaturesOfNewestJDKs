@@ -35,7 +35,7 @@ https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 ************
 513: Flexible Constructor Bodies			(16)
 **********
-537: Vector API (Twelfth Incubator)		(15)
+537: Vector API (Twelfth Incubator)			(15)
 **********
 519: Compact Object Headers					(14)
 **********
@@ -284,8 +284,7 @@ JEP														incubator/preview-finished/default	votes
      * inner class — including constructor bodies — can access fields and invoke methods of the enclosing instance
      * constructor of outer class in the early construction context cannot instantiate the Inner class 
    * Valhalla (value classes without identity)) put `super()` at the end of the constructor
-     * demo
-     * TODO-PING aph/adinn why?
+     * **demo**
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
 What You CAN Do Before super()
@@ -310,7 +309,17 @@ Action										Allowed in Prologue
  * this.someInstanceMethod();				No (Cannot call instance methods)
  * super.superclassField = 5;				No (Cannot modify parent yet)
 Demo!
-
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# Valhalla (value classes without identity)) put `super()` at the end of the constructor
+ * **demo**
+ * in C++ the object is build top down (like this) "since ever"
+ * This "hack" is prevention against only partially initialized objects
+ * It helps with flattening and enforces immutability
+   * Do not forget you can not *read* `this`, only *write* it prologue
+ * Valhalla classes have more like "builder" construction then casual constructor
+ * solves old java problem with virtual methods, where `super()` constructor, calls `this.virtual_method()` and subclass implementation accesses fields of `this` which are not yet intialized
+ * Value objects can be embedded directly into other objects and that gives a performance benefit 
+ * The 0/null becomes tricky
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
  * Started at RH at our Cubicle
@@ -345,7 +354,11 @@ Header (compact):
                               (Valhalla-reserved bits) (Self Forwarded Tag)
 ```
  * Implement 32-bit object headers —  would likely involve implementing on-demand side storage for identity hash codes -  That is our ultimate goal.
+   * There may be soft limit of 4e6 class definitions
  * Demo!
+ * ps:
+   * 4 bits for Valhalla are publicly not clear - nullable? Synchronization?
+   * Valhalla's "objects" do not have classical reference, instead are accessed via table-like (simplified) access to flattened memory
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator) ( 6%)
  * https://openjdk.org/jeps/537
@@ -360,8 +373,15 @@ Header (compact):
  * demo!
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator)  2/2
- * Current state
- * TODO-PING aph/adinn  - Why the delay? What is happening rght now?
+ * Where it is stuck?
+ * heavily Intel model of vectors
+  * hardly usable on arm
+    * Don't forget that JIT is great competitor
+  * API not clear and hard to use (recall the complex demo)
+  * Babylon based extension approach is being investigated
+   * https://openjdk.org/projects/babylon/
+   * `LINQ` like approach
+   * High level api is produced by javac and is later on the fly compiled  to non-java languages
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 531: Lazy Constants (Third Preview) (5%)
  * https://openjdk.org/jeps/531
@@ -370,9 +390,9 @@ Header (compact):
    * note the class changes
  * Still preview in 27
  * Targeting the Holder-Class singleton idiom and friends
- * performance improvements 25<26=27?
+ * performance improvements 25<26<?27
  * Be aware of `500: Prepare to Make Final Mean Final (JDK26)`
- * TODO-PING aph/adinn  - Why the delay? What is happening rght now?
+ * It is moreover done, but its "harder" usages (like AOT or class cache), are still to be done
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 506: Scoped Values (5%)
  * https://openjdk.org/jeps/506

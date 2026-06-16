@@ -5,6 +5,7 @@
  * now chnage bytecode level deffender and try again
    * and see the bytecode itself for clearliness 
    * jdk down to 8... or lower
+   * Works also for complex example Main2
  * `/usr/lib/jvm/java-27-openjdk-valhalla/bin/java  --enable-preview   Valhala.java`
    * value x  not value
  * `/usr/lib/jvm/java-25-openjdk/bin/java  Worse.java`
