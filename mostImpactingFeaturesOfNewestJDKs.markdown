@@ -285,14 +285,6 @@ JEP														incubator/preview-finished/default	votes
      * constructor of outer class in the early construction context cannot instantiate the Inner class 
    * Valhalla (value classes without identity)) put `super()` at the end of the constructor
      * **demo**
-     * in C++ the object is build top down (like this) "since ever"
-     * This "hack" is prevention against only partially initialized objects
-     * It helps with flattening and enforces immutability
-       * Do not forget you can not *read* `this`, only *write* it prologue
-     * Valhalla classes have more like "builder" construction then casual constructor
-     * solves old java problem with virtual methods, where `super()` constructor, calls `this.virtual_method()` and subclass implementation accesses fields of `this` which are not yet intialized
-     * Value objects can be embedded directly into other objects and that gives a performance benefit 
-     * The 0/null becomes tricky
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
 What You CAN Do Before super()
@@ -317,7 +309,17 @@ Action										Allowed in Prologue
  * this.someInstanceMethod();				No (Cannot call instance methods)
  * super.superclassField = 5;				No (Cannot modify parent yet)
 Demo!
-
+--PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
+# Valhalla (value classes without identity)) put `super()` at the end of the constructor
+ * **demo**
+ * in C++ the object is build top down (like this) "since ever"
+ * This "hack" is prevention against only partially initialized objects
+ * It helps with flattening and enforces immutability
+   * Do not forget you can not *read* `this`, only *write* it prologue
+ * Valhalla classes have more like "builder" construction then casual constructor
+ * solves old java problem with virtual methods, where `super()` constructor, calls `this.virtual_method()` and subclass implementation accesses fields of `this` which are not yet intialized
+ * Value objects can be embedded directly into other objects and that gives a performance benefit 
+ * The 0/null becomes tricky
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 534: Compact Object Headers by Default (6%)
  * Started at RH at our Cubicle
@@ -352,6 +354,7 @@ Header (compact):
                               (Valhalla-reserved bits) (Self Forwarded Tag)
 ```
  * Implement 32-bit object headers —  would likely involve implementing on-demand side storage for identity hash codes -  That is our ultimate goal.
+   * There may be soft limit of 4e6 class definitions
  * Demo!
  * ps:
    * 4 bits for Valhalla are publicly not clear - nullable? Synchronization?

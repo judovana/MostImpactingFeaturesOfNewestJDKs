@@ -58,7 +58,7 @@ public class CustomCollector {
         };
 
     public static void main(String[] args) {
-        //List.of(1, 2, 3, 4).stream().collect(new CustomCollectorImpl());
+        //List.of(1, 2, 3, 4).stream().collect(new CustomCollectorImpl()); - > [3,7]
         List<Integer> result = List.of(1, 2, 3, 4).stream().collect(new CustomCollectorImpl());
         System.out.println(result);
 		//result=result.stream().collect(new CustomCollectorImpl());
