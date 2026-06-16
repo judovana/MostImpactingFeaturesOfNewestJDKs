@@ -35,7 +35,7 @@ https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 ************
 513: Flexible Constructor Bodies			(16)
 **********
-537: Vector API (Twelfth Incubator)		(15)
+537: Vector API (Twelfth Incubator)			(15)
 **********
 519: Compact Object Headers					(14)
 **********
