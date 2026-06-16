@@ -4,7 +4,12 @@
 By Jiri Vanek from IBM's OpenJDK team.
 19/6/2026 Devconnf 2026, Brno
 
+
 Where the answers moreover caused renaming....
+
+
+
+https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 #    Most Expected Features Of Newest JDKs
@@ -12,7 +17,13 @@ Where the answers moreover caused renaming....
 By Jiri Vanek from IBM's OpenJDK team.
 19/6/2026 Devconnf 2026, Brno
 
+
+
 Only 7.5 JEPs made it to this talk, you can see the remaining 59 (34 - many are made in iterations)) at Brno JUG recording: https://www.youtube.com/watch?v=UnA2jRVNb3M (3hours!)
+
+
+
+https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Survey results
@@ -368,6 +379,7 @@ Header (compact):
  * Incubator in JDK 20
  * Preview since 21
  * Stable since 25	
+ * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 484: Class-File API (5%)
@@ -377,8 +389,9 @@ Header (compact):
  * Not an competitor to BCEL, ASM or similar
   * do not mess up with JASM
  * An Complement
-  * to make easily what ASM and friends have troubles to do
-  * But generally be able to do anything
+   * to make easily what ASM and friends have troubles to do
+   * But generally be able to do anything
+ * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Q?
