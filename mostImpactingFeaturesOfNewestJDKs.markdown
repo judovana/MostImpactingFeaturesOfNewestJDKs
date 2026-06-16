@@ -209,6 +209,8 @@ JEP														incubator/preview-finished/default	votes
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 454: Foreign Function & Memory API 2/3
  * Demo!
+  * jni x FF
+  * non-c, FM
 
  * Note the related:
   * 472: [Prepare to Restrict the Use of JNI](https://openjdk.org/jeps/472) 24
@@ -284,7 +286,6 @@ JEP														incubator/preview-finished/default	votes
      * inner class — including constructor bodies — can access fields and invoke methods of the enclosing instance
      * constructor of outer class in the early construction context cannot instantiate the Inner class 
    * Valhalla (value classes without identity)) put `super()` at the end of the constructor
-     * **demo**
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 513: Flexible Constructor Bodies 3/3
 What You CAN Do Before super()
@@ -361,6 +362,7 @@ Header (compact):
    * Valhalla's "objects" do not have classical reference, instead are accessed via table-like (simplified) access to flattened memory
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 537: Vector API (Twelfth Incubator) ( 6%)
+(launch the big one)
  * https://openjdk.org/jeps/537
  * preview since JDK 22
    * Still rolling!
