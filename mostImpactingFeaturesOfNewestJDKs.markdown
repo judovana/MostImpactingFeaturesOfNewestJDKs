@@ -234,7 +234,7 @@ JEP														incubator/preview-finished/default	votes
  * preview since JDK 22
  * stable since 24
  * obvious high interest in streams
-  * missing peace in streams
+  * missing piece in streams
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 485: Stream Gatherers 2/3
  * an extension point so that anyone could define **intermediate** chaining operations in  **infinite** streams
@@ -378,7 +378,10 @@ Header (compact):
  * https://openjdk.org/jeps/506
  * Incubator in JDK 20
  * Preview since 21
- * Stable since 25	
+ * Stable since 25
+ * transfer control from one component (a "framework") to another ("application code") and then back	
+   * ThreadLocal on steroids
+   * Map in ThreadLocal?-)
  * Demo!
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
