@@ -194,6 +194,8 @@ JEP														incubator/preview-finished/default	votes
  * 484: [Class-File API](https://openjdk.org/jeps/484)						(JDK 22-24)		( 5%)
 
 + 6% for String Templates and 12% for Ahead-of-Time Class Loading & Linking	= 75% of happy audience
+
+https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # 454: Foreign Function & Memory API (13%)
  * https://openjdk.org/jeps/454
@@ -420,7 +422,7 @@ Header (compact):
 
 --PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE----PAGE---
 # Q?
-
+https://github.com/judovana/MostImpactingFeaturesOfNewestJDKs
 
 
 
