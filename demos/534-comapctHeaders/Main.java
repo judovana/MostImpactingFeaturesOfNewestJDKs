@@ -4,7 +4,7 @@ public class Main {
 
 private static class MyObject {
      int i1;
-     int i2;
+//     int i2;
   }
 
   public static void main(String... args) throws Exception {
