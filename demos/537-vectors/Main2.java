@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.*;
 import jdk.incubator.vector.*;
 
-//1+1 without garbage
+//a[i] + a[i]   or  a[i] + b[i] if with two vectors
 //try to  play with max/iterations and warms
 public class Main2 {
 
