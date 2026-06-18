@@ -405,6 +405,9 @@ Header (compact):
  * Stable since 25
  * transfer control from one component (a "framework") to another ("application code") and then back	
    * ThreadLocal on steroids
+     * fixed Unconstrained mutability
+     * fixer Unbounded lifetime
+     * fixed Expensive inheritance 
    * Map in ThreadLocal?-)
  * Demo!
 
